@@ -100,6 +100,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hdr__icon,.hdr__book-m{display:none}
 .hdr .btn--gold{background:var(--white);color:var(--ink);box-shadow:none}
 .hdr .btn--gold:hover{background:#000;color:var(--white)}
+.hdr.is-scrolled .btn--gold:hover{background:var(--g-gold);color:var(--ink)}
 .hdr.is-scrolled{--hdr:78px}
 .hdr.is-scrolled .hdr__logo img{height:58px}
 
@@ -472,9 +473,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 .doc__copy>p:not(.doc__quals):not(.doc__role){max-width:36em}
 .doc__copy .btn{margin-top:12px}
 .logos{margin-top:clamp(60px,8vw,110px);padding:34px 0;background:var(--ivory);border-top:1px solid var(--sand)}
-.logos__in{display:flex;align-items:center;gap:20px 48px;flex-wrap:wrap;justify-content:space-between}
+.logos__in{display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center}
 .logos__in p{margin:0;font-family:var(--serif);font-size:22px}
-.logos ul{display:flex;align-items:center;gap:clamp(24px,4vw,64px);flex-wrap:wrap}
+.logos ul{display:flex;align-items:center;justify-content:center;gap:clamp(24px,4vw,64px);flex-wrap:wrap}
 .logos img{height:58px;width:auto;filter:grayscale(1) contrast(1.1);opacity:.75;transition:filter .3s,opacity .3s}
 .logos li:first-child img{height:72px}
 .logos img:hover{filter:none;opacity:1}
