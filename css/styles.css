@@ -271,7 +271,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .collage__c{grid-column:8/13;grid-row:2/8;z-index:1}
 @media (max-width:980px){
   .intro__grid{grid-template-columns:1fr}
-  .collage{margin-bottom:24px}
+  .collage{order:-1;margin-bottom:8px}
 }
 @media (max-width:560px){
   }
