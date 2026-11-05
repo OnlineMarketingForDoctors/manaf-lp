@@ -223,7 +223,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ==========================================================
    REVIEWS TICKER
    ========================================================== */
-.reviews{padding:clamp(72px,9vw,120px) 0 clamp(56px,7vw,96px);background:var(--g-ivory)}
+.reviews{padding:clamp(72px,9vw,120px) 0 clamp(56px,7vw,96px);background:#EEE6DA}
 .reviews__head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 40px;margin-bottom:40px}
 .reviews__head .h2{max-width:13em}
 .rv{position:relative}
