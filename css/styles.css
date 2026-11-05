@@ -24,7 +24,7 @@
 
   --r-img:32px; --r-card:22px; --r-sm:14px;
 
-  --serif:"EB Garamond",Garamond,"Times New Roman",serif;
+  --serif:"Cormorant Garamond",Garamond,"Times New Roman",serif;
   --sans:"Jost",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
 
   --hdr:96px;
@@ -149,8 +149,8 @@ ul,ol{margin:0;padding:0;list-style:none}
   linear-gradient(180deg,rgba(35,35,35,.45) 0%,rgba(35,35,35,0) 22%)}
 .hero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;padding-block:clamp(32px,5vh,72px)}
 .hero__copy{max-width:640px}
-.hero__title{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.4vw,70px);line-height:1;letter-spacing:-.025em;margin-bottom:22px;color:var(--white)}
-.hero__title .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero__title{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.7vw,74px);line-height:1.08;letter-spacing:-.01em;margin-bottom:22px;color:var(--white)}
+.hero__title .ln{display:block;overflow:hidden;padding:.04em 0 .14em;margin-bottom:-.1em}
 .hero__title .ln>span{display:block;animation:lineUp 1.1s var(--ease) both}
 .hero__title .ln:nth-child(2)>span{animation-delay:.12s}
 .hero__title .ln:nth-child(3)>span{animation-delay:.24s}
@@ -624,3 +624,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero__grid>*,.benefits__grid>*,.cand__grid>*,.doc__grid>*,.price__grid>*,.faq__grid>*,.book__grid>*,.why__grid>*{min-width:0}
 .doc__quals{overflow-wrap:anywhere}
 @media (max-width:560px){.btn{white-space:normal;text-align:center;line-height:1.3}}
+
+/* Cormorant is light at small sizes: give card titles a touch more weight */
+.bcard h3,.step h3,.why__c h3,.ba__cap h3,.cand__card h3,.price__cols h3,.glance__title,.faq summary,.foot__locs h2{font-weight:500}
