@@ -604,6 +604,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .foot__bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px;color:rgba(248,244,240,.6)}
 .foot__bar p{margin:0}
 .foot__bar a{color:var(--gold)}
+.foot__omd{display:inline-flex;align-items:center;gap:8px}
+.foot__omd img{width:18px;height:18px;flex:none}
 @media (max-width:860px){.foot__grid{grid-template-columns:1fr 1fr}.foot__brand{grid-column:1/-1}}
 @media (max-width:560px){.foot__grid{grid-template-columns:1fr}}
 
