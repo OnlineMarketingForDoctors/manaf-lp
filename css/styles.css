@@ -138,12 +138,12 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ==========================================================
    HERO (charcoal, continuous with the header)
    ========================================================== */
-.hero{position:relative;min-height:100svh;display:flex;align-items:stretch;padding-top:var(--hdr);overflow:hidden;isolation:isolate;color:var(--white);
+.hero{position:relative;min-height:max(100svh,900px);display:flex;align-items:stretch;padding-top:var(--hdr);overflow:hidden;isolation:isolate;color:var(--white);
   background:linear-gradient(115deg,#232323 0%,#2D2D2D 38%,#3E3C39 72%,#4B4945 100%)}
 .hero::before{content:"";position:absolute;width:70vw;height:70vw;left:-20vw;top:-30vw;border-radius:50%;background:radial-gradient(closest-side,rgba(208,193,151,.10),transparent);z-index:-1}
 .hero__media{position:absolute;top:0;bottom:0;right:0;left:38%;z-index:-2;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 34%);mask-image:linear-gradient(90deg,transparent 0%,#000 34%)}
-.hero__media img{width:100%;height:100%;object-fit:cover;object-position:70% 35%;animation:heroImg 2.2s var(--ease) both}
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 26%);mask-image:linear-gradient(90deg,transparent 0%,#000 26%)}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:100% 35%;animation:heroImg 2.2s var(--ease) both}
 .hero__wash{position:absolute;inset:0;z-index:-1;pointer-events:none;background:
   linear-gradient(0deg,rgba(35,35,35,.55) 0%,rgba(35,35,35,0) 28%),
   linear-gradient(180deg,rgba(35,35,35,.45) 0%,rgba(35,35,35,0) 22%)}
