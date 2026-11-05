@@ -269,7 +269,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .collage__a{grid-column:1/6;grid-row:1/8;z-index:1}
 .collage__b{grid-column:5/10;grid-row:5/13;z-index:2;border:6px solid #F8F4F0}
 .collage__c{grid-column:8/13;grid-row:1/6;z-index:1}
-.collage__d{grid-column:10/13;grid-row:7/12;z-index:3;border:6px solid #F8F4F0}
+.collage__d{grid-column:10/13;grid-row:7/12;z-index:3}
 @media (max-width:980px){
   .intro__grid{grid-template-columns:1fr}
   .collage{margin-bottom:24px}
