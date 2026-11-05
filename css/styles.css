@@ -356,8 +356,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .how__copy>p{max-width:34em;margin-top:20px}
 .how__copy .h2{max-width:10em}
 .tabs{margin-top:34px;padding:10px;border-radius:var(--r-card);background:var(--white);box-shadow:var(--sh-2)}
-.tabs__list{display:flex;gap:6px;padding:4px;background:var(--ivory);border-radius:999px;overflow-x:auto}
-.tabs__list button{flex:1;white-space:nowrap;border:0;background:none;padding:12px 16px;border-radius:999px;font-weight:600;font-size:14px;color:var(--stone);transition:background .25s,color .25s}
+.tabs__list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:4px;background:var(--ivory);border-radius:22px}
+.tabs__list button{min-width:0;white-space:normal;text-align:center;line-height:1.2;border:0;background:none;padding:12px 8px;border-radius:18px;font-weight:600;font-size:14px;color:var(--stone);transition:background .25s,color .25s}
 .tabs__list button[aria-selected="true"]{background:var(--g-ink);color:var(--ivory);box-shadow:var(--sh-1)}
 .tabs__panel{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:center;min-height:168px;padding:20px 16px 12px;animation:fadeUp .45s var(--ease)}
 .tabs__panel[hidden]{display:none}
@@ -385,8 +385,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media (max-width:560px){
   .glance{grid-template-columns:1fr 1fr}
   .tabs__panel{grid-template-columns:1fr;min-height:0}
-  .tabs__list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;border-radius:18px;overflow:visible}
-  .tabs__list button{white-space:normal;padding:10px 6px;font-size:13px;line-height:1.2;border-radius:14px}
+  .tabs__list button{padding:10px 4px;font-size:13px}
   .diagram{margin:auto}
 }
 
@@ -395,6 +394,7 @@ ul,ol{margin:0;padding:0;list-style:none}
    ========================================================== */
 .journey{padding:clamp(80px,10vw,140px) 0;background:var(--sand);border-radius:clamp(28px,4vw,56px);overflow:hidden}
 .journey__title{text-align:center;max-width:14em;margin:0 auto clamp(48px,6vw,80px)}
+.journey__nav{display:none}
 .timeline{--node:56px;position:relative;display:grid;gap:clamp(36px,5vw,64px);max-width:1120px;margin:0 auto}
 .timeline::before,.timeline::after{content:"";position:absolute;left:50%;top:0;width:2px;margin-left:-1px;border-radius:2px}
 .timeline::before{bottom:0;background:rgba(45,45,45,.16)}
@@ -411,7 +411,10 @@ ul,ol{margin:0;padding:0;list-style:none}
 .step__body p:last-child{font-size:16px;color:var(--stone);margin:0}
 @media (max-width:760px){
   /* mobile: horizontal swipeable cards (previous design) */
-  .journey__title{text-align:left;margin-left:0;margin-bottom:28px}
+  .journey__head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px}
+  .journey__title{text-align:left;margin:0}
+  .journey__nav{display:flex;gap:8px;flex:none}
+  .journey__nav .round{width:42px;height:42px}
   .timeline{display:flex;gap:16px;max-width:none;margin:0 calc(-1*var(--gut));padding:6px var(--gut) 28px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut);scrollbar-width:none}
   .timeline::-webkit-scrollbar{display:none}
   .timeline::before,.timeline::after{display:none}
@@ -609,7 +612,14 @@ ul,ol{margin:0;padding:0;list-style:none}
 .foot__omd{display:inline-flex;align-items:center;gap:8px}
 .foot__omd img{width:18px;height:18px;flex:none}
 @media (max-width:860px){.foot__grid{grid-template-columns:1fr 1fr}.foot__brand{grid-column:1/-1}}
-@media (max-width:560px){.foot__grid{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .foot__grid{grid-template-columns:1fr;text-align:center}
+  .foot__brand img{width:135px;margin-inline:auto}
+  .social{justify-content:center}
+  .foot__legal{text-align:center}
+  .foot__disc{margin-inline:auto}
+  .foot__bar{flex-direction:column;align-items:center;justify-content:center}
+}
 
 .totop{position:fixed;right:20px;bottom:20px;z-index:80;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--g-gold);color:var(--ink);box-shadow:var(--sh-3);opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .3s,transform .3s var(--ease)}
 .totop.is-on{opacity:1;transform:none;pointer-events:auto}

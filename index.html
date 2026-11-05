@@ -314,7 +314,13 @@
 <!-- ============ JOURNEY ============ -->
 <section class="journey" id="journey" aria-labelledby="journey-title">
   <div class="wrap">
-    <h2 id="journey-title" class="h2 journey__title">Your treatment journey, step by step</h2>
+    <div class="journey__head">
+      <h2 id="journey-title" class="h2 journey__title">Your treatment journey, step by step</h2>
+      <div class="journey__nav">
+        <button type="button" class="round" data-j-prev aria-label="Previous step"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" class="round" data-j-next aria-label="Next step"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
     <ol class="timeline" data-timeline>
     <li class="step reveal">
       <figure class="step__img"><img src="img/gen/consultation-planning.webp" alt="Mr Khatib explaining a surgical plan on a tablet to a patient" width="1100" height="1375" loading="lazy"></figure>

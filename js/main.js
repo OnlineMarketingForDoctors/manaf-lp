@@ -207,6 +207,18 @@
     };
     addEventListener('scroll', () => { if (!tlTick) { tlTick = true; requestAnimationFrame(tlRun); } }, { passive: true });
     tlRun();
+    // mobile arrows: move one card at a time
+    const jStep = () => { const c = tl.children[0]; return c ? c.getBoundingClientRect().width + 16 : 300; };
+    const jPrev = $('[data-j-prev]'), jNext = $('[data-j-next]');
+    const jUpd = () => {
+      jPrev.disabled = tl.scrollLeft < 4;
+      jNext.disabled = tl.scrollLeft > tl.scrollWidth - tl.clientWidth - 4;
+    };
+    jPrev.addEventListener('click', () => tl.scrollBy({ left: -jStep(), behavior: 'smooth' }));
+    jNext.addEventListener('click', () => tl.scrollBy({ left: jStep(), behavior: 'smooth' }));
+    tl.addEventListener('scroll', jUpd, { passive: true });
+    addEventListener('resize', jUpd);
+    jUpd();
   }
 
   /* ---------- reveal on scroll ---------- */
