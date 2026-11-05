@@ -408,13 +408,17 @@ ul,ol{margin:0;padding:0;list-style:none}
 .step h3{font-family:var(--serif);font-size:clamp(26px,2.3vw,32px);line-height:1.1;margin-bottom:10px}
 .step__body p:last-child{font-size:16px;color:var(--stone);margin:0}
 @media (max-width:760px){
-  .timeline{--node:44px;gap:40px}
-  .timeline::before,.timeline::after{left:22px}
-  .step{grid-template-columns:var(--node) minmax(0,1fr);gap:16px 16px;align-items:start}
-  .step__n,.step:nth-child(even) .step__n{grid-column:1;grid-row:1;font-size:18px}
-  .step__img,.step:nth-child(even) .step__img{grid-column:2;grid-row:1}
-  .step__body,.step:nth-child(even) .step__body{grid-column:2;grid-row:2}
-  .journey__title{text-align:left;margin-left:0}
+  /* mobile: horizontal swipeable cards (previous design) */
+  .journey__title{text-align:left;margin-left:0;margin-bottom:28px}
+  .timeline{display:flex;gap:16px;max-width:none;margin:0 calc(-1*var(--gut));padding:6px var(--gut) 28px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gut);scrollbar-width:none}
+  .timeline::-webkit-scrollbar{display:none}
+  .timeline::before,.timeline::after{display:none}
+  .step,.step:nth-child(even){flex:0 0 82%;display:block;position:relative;scroll-snap-align:start}
+  .step__img img{aspect-ratio:4/4.4}
+  .step__body{position:relative;margin:-64px 12px 0;padding:24px 20px}
+  .step__n{position:absolute;z-index:2;top:12px;right:12px;--node:44px;width:44px;height:44px;font-size:18px;box-shadow:var(--sh-2)}
+  .step h3{font-size:24px}
+  .step__body p:last-child{font-size:15.5px}
 }
 
 /* ==========================================================
