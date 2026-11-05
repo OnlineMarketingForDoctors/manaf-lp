@@ -173,21 +173,6 @@
   });
   showRV(0);
 
-  /* ---------- candidate checklist ---------- */
-  const boxes = $$('[data-check] input');
-  const bar = $('[data-check-bar]');
-  const msg = $('[data-check-msg]');
-  const upd = () => {
-    const n = boxes.filter(b => b.checked).length;
-    bar.style.width = (n / boxes.length * 100) + '%';
-    msg.textContent =
-      n === 0 ? 'Tick the statements that apply to you.' :
-      n === 1 ? 'One applies. Worth a conversation if it affects your daily life.' :
-      n < 4 ? `${n} apply. Many women with these symptoms benefit from a breast reduction.` :
-      `${n} apply. You share the symptoms that breast reduction is designed to relieve.`;
-  };
-  boxes.forEach(b => b.addEventListener('change', upd));
-
   /* ---------- tabs ---------- */
   $$('[data-tabs]').forEach(tabs => {
     const btns = $$('[role="tab"]', tabs);
