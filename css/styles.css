@@ -342,7 +342,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   .cand__media{max-width:560px}
 }
 @media (max-width:600px){
-      .cand__card{position:relative;width:auto;margin:-80px 0 0 12%}
+      .cand__card{position:relative;width:88%;margin:-80px auto 0}
   .cand__media{padding-bottom:0}
   .cand__img{width:100%}
 }
