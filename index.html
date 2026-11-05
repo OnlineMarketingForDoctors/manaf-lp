@@ -92,8 +92,8 @@
         <li>Honest advice with no sales pressure</li>
       </ul>
       <div class="hero__cta">
-        <a class="btn btn--dark btn--lg" href="#book">Book a consultation</a>
-        <a class="btn btn--ghost btn--lg" href="#results">See before &amp; afters</a>
+        <a class="btn btn--white btn--lg" href="#book">Book a consultation</a>
+        <a class="btn btn--white-ghost btn--lg" href="#results">See before &amp; afters</a>
       </div>
       <a class="rating" href="https://www.doctify.com/uk/specialist/manaf-khatib" target="_blank" rel="noopener">
         <span class="rating__logo"><img src="img/brand/doctify-logo.webp" alt="Doctify" width="234" height="68"></span>
@@ -128,14 +128,19 @@
   </div>
 </section>
 
-<!-- ============ REVIEWS TICKER ============ -->
+<!-- ============ REVIEWS ============ -->
 <section class="reviews" aria-labelledby="reviews-title">
   <div class="wrap reviews__head">
     <h2 id="reviews-title" class="h2">Patients who made the same decision</h2>
-    <a class="link" href="https://www.doctify.com/uk/specialist/manaf-khatib#reviews" target="_blank" rel="noopener">Read all 122 reviews on Doctify</a>
+    <div class="rv__nav">
+      <a class="link" href="https://www.doctify.com/uk/specialist/manaf-khatib#reviews" target="_blank" rel="noopener">Read all 122 reviews on Doctify</a>
+      <button type="button" class="round" data-rv-prev aria-label="Previous reviews"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" class="round" data-rv-next aria-label="Next reviews"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
   </div>
-  <div class="ticker" data-ticker>
-    <div class="ticker__track" data-ticker-track>
+  <div class="wrap">
+  <div class="rv__viewport">
+    <div class="rv__track" data-rv-track>
       <article class="rcard">
         <header class="rcard__top"><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><img class="rcard__logo" src="img/brand/doctify-logo.webp" alt="Doctify" width="234" height="68"></header>
         <p class="rcard__who">Verified patient</p>
@@ -173,19 +178,24 @@
       </article>
     </div>
   </div>
+</div>
 </section>
 
 <!-- ============ INTRO ============ -->
-<section class="intro" aria-label="Introduction">
-  <figure class="intro__sat intro__sat--a" data-parallax="-0.08">
-    <img src="img/gen/neck-pain.webp" alt="Woman rubbing her aching neck and shoulder at home" width="1100" height="1375" loading="lazy">
-  </figure>
-  <figure class="intro__sat intro__sat--b" data-parallax="0.1">
-    <img src="img/gen/confident-walk.webp" alt="Confident woman laughing as she walks along a sunny London street" width="1100" height="1375" loading="lazy">
-  </figure>
-  <div class="wrap">
-    <p class="intro__text reveal">Do you plan outfits around your bra straps? Do your shoulders ache by lunchtime, and does a simple jog feel out of reach? We hear this every week, and we understand how draining it is. Breast reduction surgery removes excess tissue and skin, lifts what remains and brings your breasts into proportion with your frame. You will feel lighter, stand taller and move with ease again.</p>
-    <a class="btn btn--dark btn--lg reveal" href="#book">Book a consultation</a>
+<section class="intro" aria-labelledby="intro-title">
+  <div class="wrap intro__grid">
+    <div class="intro__copy">
+      <h2 id="intro-title" class="h2">Do you plan outfits around your bra straps?</h2>
+      <p>Do your shoulders ache by lunchtime, and does a simple jog feel out of reach? We hear this every week, and we understand how draining it is. Breast reduction surgery removes excess tissue and skin, lifts what remains and brings your breasts into proportion with your frame. You will feel lighter, stand taller and move with ease again.</p>
+      <a class="btn btn--dark btn--lg" href="#book">Book a consultation</a>
+    </div>
+    <div class="collage">
+      <figure class="collage__a reveal-img"><img src="img/gen/neck-pain.webp" alt="Woman rubbing her aching neck and shoulder at home" width="1100" height="1366" loading="lazy"></figure>
+      <figure class="collage__b reveal-img"><img src="img/gen/wardrobe.webp" alt="Woman frustrated as she holds up a blouse that will not fit" width="1100" height="1366" loading="lazy"></figure>
+      <figure class="collage__c reveal-img" data-parallax="-0.05"><img src="img/gen/yoga.webp" alt="Woman stretching freely in a sunlit yoga studio" width="1100" height="1366" loading="lazy"></figure>
+      <figure class="collage__d reveal-img" data-parallax="0.05"><img src="img/gen/confident-walk.webp" alt="Confident woman laughing as she walks along a sunny London street" width="1100" height="1366" loading="lazy"></figure>
+      <p class="collage__tag">Most patients go home <b>the same day</b></p>
+    </div>
   </div>
 </section>
 

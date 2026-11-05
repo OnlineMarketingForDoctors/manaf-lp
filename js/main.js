@@ -130,26 +130,39 @@
     if (Math.abs(dx) > 50) showBA(bi + (dx < 0 ? perView() : -perView()));
   });
 
-  /* ---------- reviews ticker ---------- */
-  const tick = $('[data-ticker]');
-  const tTrack = $('[data-ticker-track]');
-  const originals = $$('.rcard', tTrack);
-  originals.forEach(card => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    $$('button', clone).forEach(b => b.tabIndex = -1);
-    tTrack.appendChild(clone);
+  /* ---------- reviews carousel (static, arrow navigation) ---------- */
+  const rvTrack = $('[data-rv-track]');
+  const rvCards = $$('.rcard', rvTrack);
+  const rvPrev = $('[data-rv-prev]'), rvNext = $('[data-rv-next]');
+  let ri = 0;
+  const rvPer = () => (matchMedia('(max-width: 680px)').matches ? 1 : matchMedia('(max-width: 1080px)').matches ? 2 : 3);
+  const showRV = i => {
+    const max = Math.max(0, rvCards.length - rvPer());
+    ri = Math.max(0, Math.min(i, max));
+    const w = rvCards[0].getBoundingClientRect().width + 24;
+    rvTrack.style.transform = `translateX(${-ri * w}px)`;
+    rvPrev.disabled = ri === 0;
+    rvNext.disabled = ri === max;
+    rvCards.forEach((c, k) => c.toggleAttribute('inert', k < ri || k >= ri + rvPer()));
+  };
+  rvPrev.addEventListener('click', () => showRV(ri - 1));
+  rvNext.addEventListener('click', () => showRV(ri + 1));
+  let rsx = null;
+  rvTrack.addEventListener('touchstart', e => { rsx = e.touches[0].clientX; }, { passive: true });
+  rvTrack.addEventListener('touchend', e => {
+    if (rsx === null) return;
+    const dx = e.changedTouches[0].clientX - rsx; rsx = null;
+    if (Math.abs(dx) > 50) showRV(ri + (dx < 0 ? 1 : -1));
   });
-  const allCards = $$('.rcard', tTrack);
-  const measure = () => allCards.forEach(c => {
-    const t = $('.rcard__text', c);
+  const measure = () => rvCards.forEach(c => {
     if (c.classList.contains('is-open')) return;
+    const t = $('.rcard__text', c);
     c.classList.toggle('has-more', t.scrollHeight > t.clientHeight + 2);
   });
   measure();
   document.fonts && document.fonts.ready.then(measure);
-  addEventListener('resize', measure);
-  tTrack.addEventListener('click', e => {
+  addEventListener('resize', () => { measure(); showRV(ri); });
+  rvTrack.addEventListener('click', e => {
     const btn = e.target.closest('.rcard__more');
     if (!btn) return;
     const card = btn.closest('.rcard');
@@ -157,18 +170,8 @@
     card.classList.toggle('is-open', open);
     btn.textContent = open ? 'Read less' : 'Read more';
     btn.setAttribute('aria-expanded', open);
-    tick.classList.toggle('is-paused', !!$('.rcard.is-open', tTrack));
   });
-  // touch devices have no hover: pause on touch, resume a few seconds later unless a card is open
-  let resumeT;
-  tick.addEventListener('pointerdown', e => {
-    if (e.pointerType === 'mouse') return;
-    tick.classList.add('is-paused'); clearTimeout(resumeT);
-    resumeT = setTimeout(() => { if (!$('.rcard.is-open', tTrack)) tick.classList.remove('is-paused'); }, 4000);
-  });
-  // speed relative to width
-  const setDur = () => tTrack.style.setProperty('--dur', Math.round(tTrack.scrollWidth / 2 / 45) + 's');
-  setDur();
+  showRV(0);
 
   /* ---------- candidate checklist ---------- */
   const boxes = $$('[data-check] input');
