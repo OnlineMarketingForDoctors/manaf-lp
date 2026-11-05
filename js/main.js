@@ -210,33 +210,19 @@
     });
   });
 
-  /* ---------- journey scroller ---------- */
-  const jt = $('[data-j-track]');
-  const jbar = $('[data-j-bar]');
-  const stepW = () => jt.children[0].getBoundingClientRect().width + 24;
-  const jUpd = () => {
-    const max = jt.scrollWidth - jt.clientWidth;
-    const p = max > 0 ? jt.scrollLeft / max : 1;
-    jbar.style.width = (16 + p * 84) + '%';
-  };
-  jt.addEventListener('scroll', jUpd, { passive: true });
-  $('[data-j-prev]').addEventListener('click', () => jt.scrollBy({ left: -stepW(), behavior: 'smooth' }));
-  $('[data-j-next]').addEventListener('click', () => jt.scrollBy({ left: stepW(), behavior: 'smooth' }));
-  // mouse drag
-  let dragX = null, startL = 0, moved = false;
-  jt.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; dragX = e.clientX; startL = jt.scrollLeft; moved = false; });
-  addEventListener('pointermove', e => {
-    if (dragX === null) return;
-    const dx = e.clientX - dragX;
-    if (Math.abs(dx) > 4) { moved = true; jt.classList.add('is-drag'); }
-    jt.scrollLeft = startL - dx;
-  });
-  addEventListener('pointerup', () => {
-    if (dragX === null) return;
-    dragX = null; jt.classList.remove('is-drag');
-  });
-  jt.addEventListener('click', e => { if (moved) { e.preventDefault(); moved = false; } }, true);
-  jUpd();
+  /* ---------- journey timeline: line fills as you scroll ---------- */
+  const tl = $('[data-timeline]');
+  if (tl) {
+    let tlTick = false;
+    const tlRun = () => {
+      const r = tl.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (innerHeight * 0.6 - r.top) / r.height));
+      tl.style.setProperty('--tp', p.toFixed(3));
+      tlTick = false;
+    };
+    addEventListener('scroll', () => { if (!tlTick) { tlTick = true; requestAnimationFrame(tlRun); } }, { passive: true });
+    tlRun();
+  }
 
   /* ---------- reveal on scroll ---------- */
   const io = new IntersectionObserver(entries => {

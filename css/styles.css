@@ -417,23 +417,30 @@ ul,ol{margin:0;padding:0;list-style:none}
    JOURNEY
    ========================================================== */
 .journey{padding:clamp(80px,10vw,140px) 0;background:var(--sand);border-radius:clamp(28px,4vw,56px);overflow:hidden}
-.journey__head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
-.journey__head .h2{max-width:11em}
-.journey__nav{display:flex;gap:10px}
-.journey__progress{height:3px;margin-bottom:40px}
-.journey__progress::before{content:"";display:block;height:3px;border-radius:3px;background:rgba(45,45,45,.12)}
-.journey__progress span{display:block;height:3px;margin-top:-3px;width:16%;border-radius:3px;background:var(--ink);transition:width .3s}
-.journey__track{--jp:max(var(--gut),calc((100vw - var(--max))/2 + var(--gut)));display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px var(--jp) 40px;scroll-padding-inline:var(--jp);scrollbar-width:none;cursor:grab}
-.journey__track::-webkit-scrollbar{display:none}
-.journey__track.is-drag{cursor:grabbing;scroll-snap-type:none}
-.step{flex:0 0 clamp(280px,30vw,400px);scroll-snap-align:start;position:relative}
-.step figure{border-radius:var(--r-img);overflow:hidden;box-shadow:var(--sh-2)}
-.step img{aspect-ratio:4/4.6;object-fit:cover;width:100%;transition:transform .8s var(--ease);-webkit-user-drag:none}
-.step:hover img{transform:scale(1.04)}
-.step__body{position:relative;margin:-64px 16px 0;padding:24px 22px;border-radius:var(--r-card);background:var(--white);box-shadow:var(--sh-2)}
-.step__n{position:absolute;top:-22px;right:22px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--g-ink);color:var(--gold);font:400 20px/1 var(--serif);box-shadow:var(--sh-1)}
-.step h3{font-family:var(--serif);font-size:25px;line-height:1.1;margin-bottom:8px}
-.step p{font-size:15.5px;color:var(--stone);margin:0}
+.journey__title{text-align:center;max-width:14em;margin:0 auto clamp(48px,6vw,80px)}
+.timeline{--node:56px;position:relative;display:grid;gap:clamp(36px,5vw,64px);max-width:1120px;margin:0 auto}
+.timeline::before,.timeline::after{content:"";position:absolute;left:50%;top:0;width:2px;margin-left:-1px;border-radius:2px}
+.timeline::before{bottom:0;background:rgba(45,45,45,.16)}
+.timeline::after{height:calc(var(--tp,0) * 100%);background:linear-gradient(180deg,var(--gold),var(--gold-lo));transition:height .2s linear}
+.step{position:relative;display:grid;grid-template-columns:minmax(0,1fr) var(--node) minmax(0,1fr);gap:0 clamp(24px,3.5vw,48px);align-items:center}
+.step__img{grid-column:1;grid-row:1;border-radius:var(--r-img);overflow:hidden;box-shadow:var(--sh-2)}
+.step__img img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .8s var(--ease)}
+.step:hover .step__img img{transform:scale(1.04)}
+.step__n{grid-column:2;grid-row:1;position:relative;z-index:1;width:var(--node);height:var(--node);border-radius:50%;display:grid;place-items:center;background:var(--g-ink);color:var(--gold);font:500 20px/1 var(--sans);font-variant-numeric:lining-nums;box-shadow:0 0 0 8px var(--sand),var(--sh-2)}
+.step__body{grid-column:3;grid-row:1;padding:clamp(24px,3vw,36px);border-radius:var(--r-card);background:var(--white);box-shadow:var(--sh-2)}
+.step:nth-child(even) .step__img{grid-column:3}
+.step:nth-child(even) .step__body{grid-column:1}
+.step h3{font-family:var(--serif);font-size:clamp(26px,2.3vw,32px);line-height:1.1;margin-bottom:10px}
+.step__body p:last-child{font-size:16px;color:var(--stone);margin:0}
+@media (max-width:760px){
+  .timeline{--node:44px;gap:40px}
+  .timeline::before,.timeline::after{left:22px}
+  .step{grid-template-columns:var(--node) minmax(0,1fr);gap:16px 16px;align-items:start}
+  .step__n,.step:nth-child(even) .step__n{grid-column:1;grid-row:1;font-size:18px}
+  .step__img,.step:nth-child(even) .step__img{grid-column:2;grid-row:1}
+  .step__body,.step:nth-child(even) .step__body{grid-column:2;grid-row:2}
+  .journey__title{text-align:left;margin-left:0}
+}
 
 /* ==========================================================
    WHY
