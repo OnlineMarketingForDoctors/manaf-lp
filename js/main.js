@@ -272,6 +272,15 @@
     form.reset();
   });
 
+  /* ---------- accreditation logos: duplicate for the mobile scrolling line ---------- */
+  const logoList = $('.logos ul');
+  if (logoList) $$('li', logoList).forEach(li => {
+    const c = li.cloneNode(true);
+    c.classList.add('is-clone'); c.setAttribute('aria-hidden', 'true');
+    $('img', c).alt = '';
+    logoList.appendChild(c);
+  });
+
   /* ---------- misc ---------- */
   const yr = $('[data-year]'); if (yr) yr.textContent = new Date().getFullYear();
 })();
