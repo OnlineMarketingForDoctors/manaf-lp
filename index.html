@@ -201,13 +201,15 @@
       <p class="ba__lead">Drag the handle across each photo to reveal the result.</p>
       <div class="ba__nav">
         <span class="ba__count"><b data-ba-i>1 and 2</b> of 7</span>
-        <button type="button" class="round round--light" data-ba-prev aria-label="Previous patients"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <button type="button" class="round round--light" data-ba-next aria-label="Next patients"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
     </div>
-    <div class="ba__viewport">
-      <div class="ba__track" data-ba-track>
-        <!-- slides injected by JS from data -->
+    <div class="ba__stage">
+      <button type="button" class="round round--light ba__arrow ba__arrow--prev" data-ba-prev aria-label="Previous patients"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" class="round round--light ba__arrow ba__arrow--next" data-ba-next aria-label="Next patients"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      <div class="ba__viewport">
+        <div class="ba__track" data-ba-track>
+          <!-- slides injected by JS from data -->
+        </div>
       </div>
     </div>
     <div class="ba__dots" data-ba-dots role="group" aria-label="Choose patients to view"></div>

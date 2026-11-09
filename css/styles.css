@@ -281,7 +281,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .ba__head{max-width:1100px;margin-inline:auto;position:relative;display:grid;grid-template-columns:1fr auto;gap:12px 40px;align-items:end;margin-bottom:44px}
 .ba__head .h2{max-width:14em}
 .ba__lead{grid-column:1;color:rgba(248,244,240,.7);margin:0}
-.ba__nav{grid-column:2;grid-row:1/3;display:flex;align-items:center;gap:12px}
+.ba__nav{grid-column:2;grid-row:1/3;display:flex;align-items:center;gap:12px;align-self:end}
 .ba__count{font-size:14px;color:rgba(248,244,240,.7);margin-right:8px}
 .ba__count b{color:var(--gold);font-weight:600}
 .ba__viewport{overflow:hidden;margin:0 auto;padding:12px;max-width:1124px}
@@ -292,10 +292,18 @@ ul,ol{margin:0;padding:0;list-style:none}
 .ba__cap{padding:0 8px;max-width:30em}
 .ba__cap h3{font-family:var(--serif);font-size:24px;line-height:1.1;margin-bottom:6px;color:var(--gold)}
 .ba__cap p{font-size:15px;color:rgba(248,244,240,.78);margin:0}
-.ba__dots{display:flex;justify-content:center;gap:2px;margin-top:30px}
-.ba__dot{width:24px;height:24px;padding:7px;border:0;border-radius:999px;background:rgba(248,244,240,.3);background-clip:content-box;transition:width .35s var(--ease),background .35s}
-.ba__dot:hover{background:rgba(248,244,240,.6)}
-.ba__dot.is-active{width:46px;background:var(--g-gold);background-clip:content-box}
+.ba__stage{position:relative;max-width:1124px;margin:0 auto}
+.ba__arrow{position:absolute;z-index:3;top:min(42%,320px);transform:translateY(-50%);backdrop-filter:blur(8px)}
+.ba__arrow--prev{left:-76px}
+.ba__arrow--next{right:-76px}
+@media (max-width:1300px){.ba__arrow--prev{left:-10px}.ba__arrow--next{right:-10px}.ba__arrow{background:rgba(45,45,45,.6)}}
+@media (max-width:680px){.ba__arrow{width:40px;height:40px}.ba__arrow--prev{left:-6px}.ba__arrow--next{right:-6px}}
+.ba__dots{display:flex;justify-content:center;gap:4px;margin-top:26px}
+.ba__dot{width:22px;height:22px;padding:0;border:0;background:none;display:grid;place-items:center;cursor:pointer}
+.ba__dot::before{content:"";width:9px;height:9px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--gold);transition:background .3s}
+.ba__dot.is-active::before{background:var(--gold)}
+.ba__dot:hover::before{background:rgba(208,193,151,.45)}
+.ba__dot.is-active:hover::before{background:var(--gold)}
 .ba__dot:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .ba__disc{margin:40px auto 0;max-width:1100px!important;font-size:13px;color:rgba(248,244,240,.6);max-width:60em}
 @media (max-width:900px){
