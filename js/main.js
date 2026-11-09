@@ -116,7 +116,31 @@
     countB.textContent = pv === 1 ? `${bi + 1}` : `${bi + 1} and ${bi + 2}`;
     prevB.disabled = bi === 0;
     nextB.disabled = bi === max;
+    renderDots(pv, max);
   };
+  // dot navigation under the slides: one dot per view
+  const dotsB = $('[data-ba-dots]');
+  const renderDots = (pv, max) => {
+    const pages = Math.ceil(CASES.length / pv);
+    if (dotsB.children.length !== pages) {
+      dotsB.innerHTML = Array.from({ length: pages }, (_, k) => {
+        const from = Math.min(k * pv, max) + 1;
+        const label = pv === 1 ? `Patient ${from}` : `Patients ${from} and ${from + 1}`;
+        return `<button type="button" class="ba__dot" aria-label="Show ${label}"></button>`;
+      }).join('');
+    }
+    const active = bi >= max ? pages - 1 : Math.floor(bi / pv);
+    [...dotsB.children].forEach((d, k) => {
+      d.classList.toggle('is-active', k === active);
+      d.setAttribute('aria-current', k === active ? 'true' : 'false');
+    });
+  };
+  dotsB.addEventListener('click', e => {
+    const d = e.target.closest('.ba__dot');
+    if (!d) return;
+    const k = [...dotsB.children].indexOf(d);
+    showBA(k * perView());
+  });
   prevB.addEventListener('click', () => showBA(bi - perView()));
   nextB.addEventListener('click', () => showBA(bi + perView()));
   addEventListener('resize', () => showBA(bi));

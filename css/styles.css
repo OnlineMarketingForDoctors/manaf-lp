@@ -292,6 +292,11 @@ ul,ol{margin:0;padding:0;list-style:none}
 .ba__cap{padding:0 8px;max-width:30em}
 .ba__cap h3{font-family:var(--serif);font-size:24px;line-height:1.1;margin-bottom:6px;color:var(--gold)}
 .ba__cap p{font-size:15px;color:rgba(248,244,240,.78);margin:0}
+.ba__dots{display:flex;justify-content:center;gap:2px;margin-top:30px}
+.ba__dot{width:24px;height:24px;padding:7px;border:0;border-radius:999px;background:rgba(248,244,240,.3);background-clip:content-box;transition:width .35s var(--ease),background .35s}
+.ba__dot:hover{background:rgba(248,244,240,.6)}
+.ba__dot.is-active{width:46px;background:var(--g-gold);background-clip:content-box}
+.ba__dot:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .ba__disc{margin:40px auto 0;max-width:1100px!important;font-size:13px;color:rgba(248,244,240,.6);max-width:60em}
 @media (max-width:900px){
   .ba__head{grid-template-columns:1fr}
