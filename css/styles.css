@@ -157,7 +157,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero__title .ln:nth-child(3)>span{animation-delay:.24s}
 .hero__sub{font-size:clamp(18px,1.45vw,21px);line-height:1.5;max-width:30em;color:rgba(255,255,255,.86);animation:fadeUp .9s .45s var(--ease) both}
 .hero__points{display:grid;gap:10px;margin:4px 0 30px;animation:fadeUp .9s .55s var(--ease) both}
-.hero__points li{display:flex;gap:12px;align-items:center;font-weight:500;color:var(--white)}
+.hero__points li{display:flex;gap:12px;align-items:center;font-weight:400;color:var(--white)}
 .hero__points li::before{content:"";flex:none;width:22px;height:22px;border-radius:50%;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232D2D2D' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px 12px no-repeat,var(--g-gold)}
 .hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;animation:fadeUp .9s .65s var(--ease) both}
