@@ -280,7 +280,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ==========================================================
    BEFORE & AFTER
    ========================================================== */
-.ba{position:relative;background:var(--g-ink);color:var(--ivory);padding:clamp(80px,10vw,140px) 0;overflow:hidden;border-radius:clamp(28px,4vw,56px) clamp(28px,4vw,56px) 0 0}
+.ba{position:relative;background:var(--g-ink);color:var(--ivory);padding:clamp(80px,10vw,140px) 0;overflow:hidden}
 .ba::before{content:"";position:absolute;width:900px;height:900px;right:-300px;top:-400px;background:radial-gradient(closest-side,rgba(208,193,151,.22),transparent)}
 .ba__head{max-width:1100px;margin-inline:auto;position:relative;display:grid;grid-template-columns:1fr auto;gap:12px 40px;align-items:end;margin-bottom:44px}
 .ba__head .h2{max-width:14em}
@@ -329,7 +329,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ==========================================================
    CANDIDATES
    ========================================================== */
-.cand{padding:clamp(80px,10vw,150px) 0;background:var(--white);border-radius:clamp(28px,4vw,56px)}
+.cand{padding:clamp(80px,10vw,150px) 0;background:var(--white)}
 .cand__grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(40px,6vw,96px);align-items:center}
 .cand__media{position:relative;padding-bottom:120px}
 .cand__img{border-radius:var(--r-img);overflow:hidden;box-shadow:var(--sh-2);width:84%}
@@ -393,7 +393,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ==========================================================
    JOURNEY
    ========================================================== */
-.journey{padding:clamp(80px,10vw,140px) 0;background:var(--sand);border-radius:clamp(28px,4vw,56px);overflow:hidden}
+.journey{padding:clamp(80px,10vw,140px) 0;background:var(--sand);overflow:hidden}
 .journey__title{text-align:center;max-width:14em;margin:0 auto clamp(48px,6vw,80px)}
 .journey__nav{display:none}
 .timeline{--node:56px;position:relative;display:grid;gap:clamp(36px,5vw,64px);max-width:1120px;margin:0 auto}
@@ -459,7 +459,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ==========================================================
    DOCTOR
    ========================================================== */
-.doc{padding:clamp(80px,10vw,150px) 0 0;background:var(--white);border-radius:clamp(28px,4vw,56px) clamp(28px,4vw,56px) 0 0}
+.doc{padding:clamp(80px,10vw,150px) 0 0;background:var(--white)}
 .doc__grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,100px);align-items:center}
 .doc__media{position:relative;padding:0 18% 90px 0}
 .doc__main{border-radius:var(--r-img);overflow:hidden;box-shadow:var(--sh-3)}
@@ -560,7 +560,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ==========================================================
    BOOK
    ========================================================== */
-.book{position:relative;isolation:isolate;padding:clamp(90px,11vw,160px) 0;overflow:hidden;border-radius:clamp(28px,4vw,56px) clamp(28px,4vw,56px) 0 0;background:var(--ink)}
+.book{position:relative;isolation:isolate;padding:clamp(90px,11vw,160px) 0;overflow:hidden;background:var(--ink)}
 .book__bg{position:absolute;inset:0;z-index:-2}
 .book__bg img{width:100%;height:100%;object-fit:cover;object-position:20% 35%}
 .book__wash{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(45,45,45,.05) 0%,rgba(45,45,45,.25) 35%,rgba(45,45,45,.85) 55%,rgba(45,45,45,.95) 100%)}
