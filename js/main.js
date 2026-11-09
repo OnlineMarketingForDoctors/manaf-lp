@@ -105,7 +105,7 @@
 
   let bi = 0;
   const perView = () => (matchMedia('(max-width: 900px)').matches ? 1 : 2);
-  const prevB = $('[data-ba-prev]'), nextB = $('[data-ba-next]'), countB = $('[data-ba-i]');
+  const prevB = $('[data-ba-prev]'), nextB = $('[data-ba-next]');
   const showBA = i => {
     const pv = perView();
     const max = CASES.length - pv;
@@ -113,7 +113,6 @@
     const slide = track.children[0];
     const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 28;
     track.style.transform = `translateX(${-bi * (slide.getBoundingClientRect().width + gap)}px)`;
-    countB.textContent = pv === 1 ? `${bi + 1}` : `${bi + 1} and ${bi + 2}`;
     prevB.disabled = bi === 0;
     nextB.disabled = bi === max;
     renderDots(pv, max);
