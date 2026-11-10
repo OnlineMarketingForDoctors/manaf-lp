@@ -164,38 +164,16 @@
     if (Math.abs(dx) > 50) showBA(bi + (dx < 0 ? perView() : -perView()));
   });
 
-  /* ---------- reviews carousel (static, arrow navigation) ---------- */
+  /* ---------- reviews: continuously moving carousel ---------- */
   const rvTrack = $('[data-rv-track]');
+  const rvView = $('[data-rv-viewport]');
   const rvCards = $$('.rcard', rvTrack);
-  const rvPrev = $('[data-rv-prev]'), rvNext = $('[data-rv-next]');
-  let ri = 0;
-  const rvPer = () => (matchMedia('(max-width: 680px)').matches ? 1 : matchMedia('(max-width: 1080px)').matches ? 2 : 3);
-  const showRV = i => {
-    const max = Math.max(0, rvCards.length - rvPer());
-    ri = Math.max(0, Math.min(i, max));
-    const w = rvCards[0].getBoundingClientRect().width + 24;
-    rvTrack.style.transform = `translateX(${-ri * w}px)`;
-    rvPrev.disabled = ri === 0;
-    rvNext.disabled = ri === max;
-    rvCards.forEach((c, k) => c.toggleAttribute('inert', k < ri || k >= ri + rvPer()));
-  };
-  rvPrev.addEventListener('click', () => showRV(ri - 1));
-  rvNext.addEventListener('click', () => showRV(ri + 1));
-  let rsx = null;
-  rvTrack.addEventListener('touchstart', e => { rsx = e.touches[0].clientX; }, { passive: true });
-  rvTrack.addEventListener('touchend', e => {
-    if (rsx === null) return;
-    const dx = e.changedTouches[0].clientX - rsx; rsx = null;
-    if (Math.abs(dx) > 50) showRV(ri + (dx < 0 ? 1 : -1));
-  });
-  const measure = () => rvCards.forEach(c => {
+  rvCards.forEach((c, k) => { c.dataset.k = k; });
+  const measure = () => $$('.rcard', rvTrack).forEach(c => {
     if (c.classList.contains('is-open')) return;
     const t = $('.rcard__text', c);
     c.classList.toggle('has-more', t.scrollHeight > t.clientHeight + 2);
   });
-  measure();
-  document.fonts && document.fonts.ready.then(measure);
-  addEventListener('resize', () => { measure(); showRV(ri); });
   rvTrack.addEventListener('click', e => {
     const btn = e.target.closest('.rcard__more');
     if (!btn) return;
@@ -205,7 +183,37 @@
     btn.textContent = open ? 'Read less' : 'Read more';
     btn.setAttribute('aria-expanded', open);
   });
-  showRV(0);
+  if (!reduced) {
+    // duplicate the set so the loop is seamless; copies are hidden from assistive tech
+    rvCards.forEach(c => {
+      const d = c.cloneNode(true);
+      d.setAttribute('aria-hidden', 'true'); d.inert = true;
+      rvTrack.appendChild(d);
+    });
+    const SPEED = 38; // px per second
+    let x = 0, last = 0, hover = false, drag = null;
+    const paused = () => hover || drag || rvTrack.querySelector('.rcard.is-open') || rvView.contains(document.activeElement);
+    const tick = t => {
+      const dt = last ? Math.min(t - last, 64) / 1000 : 0; last = t;
+      if (!paused()) x -= SPEED * dt;
+      const w = rvTrack.scrollWidth / 2;
+      if (x <= -w) x += w;
+      if (x > 0) x -= w;
+      rvTrack.style.transform = `translate3d(${x.toFixed(2)}px,0,0)`;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    rvView.addEventListener('mouseenter', () => { hover = true; });
+    rvView.addEventListener('mouseleave', () => { hover = false; });
+    // swipe to move it by hand on touch screens
+    rvView.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') drag = { sx: e.clientX, x0: x }; });
+    addEventListener('pointermove', e => { if (drag) x = drag.x0 + (e.clientX - drag.sx); }, { passive: true });
+    addEventListener('pointerup', () => { drag = null; });
+    addEventListener('pointercancel', () => { drag = null; });
+  }
+  measure();
+  document.fonts && document.fonts.ready.then(measure);
+  addEventListener('resize', measure);
 
   /* ---------- tabs ---------- */
   $$('[data-tabs]').forEach(tabs => {
