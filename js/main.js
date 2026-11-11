@@ -143,7 +143,7 @@
   $$('.compare', track).forEach(initCompare);
 
   let bi = 0;
-  const perView = () => (matchMedia('(max-width: 900px)').matches ? 1 : 2);
+  const perView = () => (matchMedia('(max-width: 900px)').matches ? 1 : matchMedia('(max-width: 1180px)').matches ? 2 : 3);
   const prevB = $('[data-ba-prev]'), nextB = $('[data-ba-next]');
   const showBA = i => {
     const pv = perView();
@@ -163,7 +163,7 @@
     if (dotsB.children.length !== pages) {
       dotsB.innerHTML = Array.from({ length: pages }, (_, k) => {
         const from = Math.min(k * pv, max) + 1;
-        const label = pv === 1 ? `Patient ${from}` : `Patients ${from} and ${from + 1}`;
+        const label = pv === 1 ? `Patient ${from}` : pv === 2 ? `Patients ${from} and ${from + 1}` : `Patients ${from} to ${from + 2}`;
         return `<button type="button" class="ba__dot" aria-label="Show ${label}"></button>`;
       }).join('');
     }
