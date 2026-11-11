@@ -100,6 +100,20 @@
     });
   }
 
+  /* ---------- case study: before/after + click-to-play video ---------- */
+  const caseCmp = $('[data-case-compare]');
+  if (caseCmp) initCompare(caseCmp);
+  const caseFig = $('[data-case-video]');
+  if (caseFig) {
+    const v = $('video', caseFig);
+    $('[data-case-play]', caseFig).addEventListener('click', () => {
+      caseFig.classList.add('is-playing');
+      v.controls = true;
+      v.play().catch(() => {});
+      v.focus();
+    });
+  }
+
   /* ---------- before & after carousel ---------- */
   const track = $('[data-ba-track]');
   track.innerHTML = CASES.map((c, i) => `
