@@ -648,6 +648,9 @@ a.rating:hover{opacity:.85}
 .form__note{font-size:13px;color:var(--stone);margin:0}
 .form__done{position:absolute;inset:0;border-radius:var(--r-img);background:var(--g-ink);color:var(--ivory);display:grid;place-content:center;text-align:center;padding:40px;animation:fadeUp .5s var(--ease)}
 .form__done[hidden]{display:none}
+.form--embed{display:block;padding:40px;align-self:start}
+.form--embed iframe{display:block;width:100%;min-height:0;vertical-align:top}
+@media (max-width:480px){.form--embed{padding:24px 16px}}
 .form__done h3{font-family:var(--serif);font-size:32px;line-height:1.1;color:var(--gold);margin-bottom:12px}
 @media (max-width:980px){.book__grid{grid-template-columns:1fr}.book__copy,.form{grid-column:1}.book__copy{display:block}}
 @media (max-width:560px){.form__row{grid-template-columns:1fr}}

@@ -575,36 +575,27 @@
       <p>Send us a few details and Mr Khatib’s secretary will call you to arrange a consultation in London or Hertfordshire at a time that suits you.</p>
       <a class="book__tel" href="tel:+442034750840"><span>Prefer to talk?</span>020 3475 0840</a>
     </div>
-    <form class="form" data-form novalidate>
-      <div class="form__row">
-        <label class="field"><span>First name</span><input name="first_name" autocomplete="given-name" required></label>
-        <label class="field"><span>Last name</span><input name="last_name" autocomplete="family-name" required></label>
-      </div>
-      <div class="form__row">
-        <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
-        <label class="field"><span>Phone</span><input name="phone" type="tel" autocomplete="tel" required></label>
-      </div>
-      <label class="field"><span>How did you hear about us?</span>
-        <select name="source" required>
-          <option value="" selected disabled>Choose one</option>
-          <option>Google or Bing</option>
-          <option>Social media</option>
-          <option>Doctify</option>
-          <option>Family or friend</option>
-          <option>From my GP</option>
-          <option>From another doctor</option>
-          <option>AI (ChatGPT, Perplexity, etc.)</option>
-          <option>Other</option>
-        </select>
-      </label>
-      <label class="field"><span>Message</span><textarea name="message" rows="4" placeholder="Tell us a little about what you would like to change"></textarea></label>
-      <p class="form__note">Your details are only used to arrange your consultation.</p>
-      <button class="btn btn--dark btn--lg btn--block btn--invert" type="submit">Request my consultation</button>
-      <div class="form__done" hidden>
-        <h3>Thank you, your request has been sent</h3>
-        <p>Mr Khatib’s secretary will call you within one working day to arrange your consultation.</p>
-      </div>
-    </form>
+    <div class="form form--embed">
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/q42sdzIF8kL6QykgwO1b"
+        style="width:100%;height:658px;border:none;border-radius:0px"
+        id="inline-q42sdzIF8kL6QykgwO1b"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="LP Form"
+        data-height="658"
+        data-layout-iframe-id="inline-q42sdzIF8kL6QykgwO1b"
+        data-form-id="q42sdzIF8kL6QykgwO1b"
+        data-cookie-consent="true"
+        data-cookie-consent-provider="auto"
+        title="LP Form">
+      </iframe>
+    </div>
   </div>
 </section>
 </main>
@@ -658,5 +649,6 @@
 <a class="totop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"/></svg></a>
 
 <script src="js/main.js" defer></script>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 </body>
 </html>

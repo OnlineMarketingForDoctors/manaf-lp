@@ -322,38 +322,6 @@
     run();
   }
 
-  /* ---------- form (design only: validates and shows confirmation) ---------- */
-  const form = $('[data-form]');
-  const err = (field, text) => {
-    const wrap = field.closest('.field');
-    let m = $('.field__err', wrap);
-    wrap.classList.toggle('is-error', !!text);
-    if (text) {
-      if (!m) { m = document.createElement('span'); m.className = 'field__err'; wrap.appendChild(m); }
-      m.textContent = text;
-      field.setAttribute('aria-invalid', 'true');
-    } else { m && m.remove(); field.removeAttribute('aria-invalid'); }
-  };
-  const check = f => {
-    const v = f.value.trim();
-    if (f.required && !v) return f.tagName === 'SELECT' ? 'Choose how you heard about us.' : 'Fill in this field.';
-    if (f.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return 'Enter an email address like name@example.com.';
-    if (f.type === 'tel' && v && v.replace(/\D/g, '').length < 10) return 'Enter a phone number with at least 10 digits.';
-    return '';
-  };
-  $$('input, select, textarea', form).forEach(f => f.addEventListener('blur', () => { if (f.value) err(f, check(f)); }));
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    let first = null;
-    $$('input, select, textarea', form).forEach(f => {
-      const m = check(f); err(f, m);
-      if (m && !first) first = f;
-    });
-    if (first) { first.focus(); return; }
-    $('.form__done', form).hidden = false;
-    form.reset();
-  });
-
   /* ---------- accreditation logos: duplicate for the mobile scrolling line ---------- */
   const logoList = $('.logos ul');
   if (logoList) $$('li', logoList).forEach(li => {
