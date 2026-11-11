@@ -114,6 +114,20 @@
     });
   }
 
+  /* ---------- google review: read more ---------- */
+  const grBtn = $('[data-gr-more]');
+  if (grBtn) {
+    const sec = grBtn.closest('.gr'), txt = $('[data-gr-text]');
+    grBtn.addEventListener('click', () => {
+      const open = !sec.classList.contains('is-open');
+      if (open) { txt.style.maxHeight = txt.scrollHeight + 'px'; }
+      else { txt.style.maxHeight = ''; }
+      sec.classList.toggle('is-open', open);
+      grBtn.textContent = open ? 'Read less' : 'Read more';
+      grBtn.setAttribute('aria-expanded', open);
+    });
+  }
+
   /* ---------- before & after carousel ---------- */
   const track = $('[data-ba-track]');
   track.innerHTML = CASES.map((c, i) => `

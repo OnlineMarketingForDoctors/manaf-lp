@@ -760,3 +760,30 @@ ul,ol{margin:0;padding:0;list-style:none}
   .case__quote{padding:22px 20px}
   .case .btn{width:100%}
 }
+
+/* ==========================================================
+   GOOGLE REVIEW (full bleed)
+   ========================================================== */
+.gr{position:relative;overflow:hidden;isolation:isolate;padding:clamp(90px,11vw,160px) 0;color:var(--ivory);
+  background:radial-gradient(60% 80% at 85% 20%,rgba(208,193,151,.18),transparent 70%),radial-gradient(50% 70% at 0% 100%,rgba(179,162,114,.14),transparent 70%),var(--g-ink)}
+.gr__mark{position:absolute;z-index:-1;left:50%;top:-.12em;translate:-50% 0;font:400 clamp(360px,48vw,720px)/1 var(--serif);color:rgba(208,193,151,.08);pointer-events:none;user-select:none}
+.gr__in{max-width:980px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.gr__src{display:flex;align-items:center;gap:16px;margin-bottom:30px}
+.gr__logo{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 10px;border-radius:999px;background:var(--white);color:#5F6368;font-size:15px}
+.gr__logo b{color:#202124;font-weight:600}
+.gr__g{width:24px;height:24px}
+.gr__stars{color:#FBBC04;font-size:20px;letter-spacing:3px}
+.gr__title{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.4vw,76px);line-height:1.05;letter-spacing:-.01em;text-wrap:balance;margin-bottom:30px}
+.gr__quote{margin:0;display:flex;flex-direction:column;align-items:center}
+.gr__text{position:relative;max-width:46em;font-size:clamp(17px,1.35vw,19px);line-height:1.7;color:rgba(248,244,240,.86);max-height:calc(1.7em * 5);overflow:hidden;transition:max-height .7s var(--ease)}
+.gr__text{-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent)}
+.gr__text p{margin:0 0 1em}
+.gr__text p:last-child{margin-bottom:0}
+.gr.is-open .gr__text{-webkit-mask-image:none;mask-image:none}
+.gr__more{margin-top:14px;padding:6px 0;background:none;border:0;color:var(--white);font-weight:600;font-size:15px;border-bottom:1.5px solid var(--gold)}
+.gr__more:hover{color:var(--gold)}
+.gr__who{display:flex;align-items:center;gap:14px;margin-top:36px;text-align:left}
+.gr__avatar{display:grid;place-items:center;width:50px;height:50px;border-radius:50%;background:#7E57C2;color:#fff;font-size:22px;font-weight:500}
+.gr__who b{display:block;font-size:17px;font-weight:600}
+.gr__who b+span{font-size:14px;color:rgba(248,244,240,.65)}
+@media (max-width:560px){.gr__src{flex-direction:column;gap:12px}.gr__text{max-height:calc(1.7em * 7)}}
