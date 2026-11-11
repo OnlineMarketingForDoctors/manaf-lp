@@ -803,3 +803,32 @@ a.rating:hover{opacity:.85}
 .gr__who b{display:block;font-size:17px;font-weight:600}
 .gr__who b+span{font-size:14px;color:rgba(248,244,240,.65)}
 @media (max-width:560px){.gr__src{flex-direction:column;gap:12px}.gr__text{max-height:calc(1.7em * 7)}}
+
+/* ==========================================================
+   THANK YOU PAGE
+   ========================================================== */
+.hdr--simple .hdr__in{grid-template-columns:1fr auto}
+.hdr--simple::before{opacity:1}
+.ty{position:relative;isolation:isolate;overflow:hidden;color:var(--white);background:#232221;padding:calc(var(--hdr) + clamp(48px,8vw,110px)) 0 clamp(72px,9vw,130px)}
+.ty__in{max-width:1080px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.ty__tick{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:var(--g-gold);box-shadow:0 0 0 12px rgba(208,193,151,.12),0 20px 40px -16px rgba(0,0,0,.7);margin-bottom:28px;animation:floatIn .9s var(--ease) both}
+.ty__tick svg{width:34px;height:34px;fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;animation:tyDraw .6s .5s var(--ease) forwards}
+@keyframes tyDraw{to{stroke-dashoffset:0}}
+.ty__eyebrow{font:600 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;animation:fadeUp .9s .2s var(--ease) both}
+.ty__title{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.6vw,78px);line-height:1.05;letter-spacing:-.01em;margin-bottom:24px;animation:fadeUp .9s .3s var(--ease) both}
+.ty__title em{color:var(--gold)}
+.ty__lead{font-size:clamp(17px,1.4vw,20px);line-height:1.6;max-width:36em;color:rgba(255,255,255,.86);margin-bottom:clamp(40px,6vw,64px);animation:fadeUp .9s .4s var(--ease) both}
+.ty__steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;width:100%;margin-bottom:44px;text-align:left;counter-reset:none;animation:fadeUp .9s .5s var(--ease) both}
+.ty__steps li{position:relative;padding:26px 24px 24px;border-radius:var(--r-card);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px)}
+.ty__n{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font:600 16px/1 var(--sans);margin-bottom:16px}
+.ty__steps h2{font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.1;margin-bottom:8px}
+.ty__steps p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.75);margin:0}
+.ty__cta{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:48px;animation:fadeUp .9s .6s var(--ease) both}
+.ty__more{margin-bottom:48px;animation:fadeUp .9s .7s var(--ease) both}
+.ty__more p{font:600 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:14px}
+.ty__more ul{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px}
+.ty__more a{font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--gold);padding-bottom:2px;transition:color .2s}
+.ty__more a:hover{color:var(--gold)}
+.ty__ratings{text-align:left}
+@media (max-width:860px){.ty__steps{grid-template-columns:1fr;max-width:520px}}
+@media (max-width:560px){.ty__cta .btn{flex:1 1 100%}.ty__more ul{flex-direction:column;align-items:center}}
