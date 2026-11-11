@@ -113,7 +113,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   .hdr__icon{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:rgba(248,244,240,.08);border:1px solid rgba(208,193,151,.45);color:var(--gold);text-decoration:none}
   .hdr__icon svg{width:20px;height:20px;fill:currentColor}
   .hdr__act{gap:10px}
-  .hdr__burger{flex-direction:column;gap:4px}
+  .hdr__burger{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
   .hdr__burger span{display:block;width:18px;height:2px;border-radius:2px;background:var(--gold);transition:transform .3s,opacity .3s}
   .hdr__burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
   .hdr__burger[aria-expanded="true"] span:nth-child(2){opacity:0}
