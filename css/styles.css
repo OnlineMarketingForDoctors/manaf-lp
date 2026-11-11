@@ -246,7 +246,12 @@ a.rating:hover{opacity:.85}
   .hero__bg::after{width:120vw;right:-50vw;top:auto;bottom:-20vw;translate:none}
   .hero__grid{display:block;padding-block:40px 56px}
   .hero__copy{max-width:none}
-  .hero__side{margin-top:44px;animation:none}
+  .hero__grid{display:flex;flex-direction:column;align-items:stretch}
+  .hero__copy{display:contents}
+  .hero__copy>*{order:3}
+  .hero__title{order:1}
+  .hero__side{order:2;margin:0 0 28px;animation:none}
+  .ratings{align-self:flex-start}
   .stage{width:min(100%,460px)}
 }
 @media (max-width:480px){
