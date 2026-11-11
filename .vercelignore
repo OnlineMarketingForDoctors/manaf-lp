@@ -1,3 +1,4 @@
 # Not part of the website: keep these out of Vercel deployments
 .claude/
 docs/
+CLAUDE.md
