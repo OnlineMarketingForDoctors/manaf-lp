@@ -15,7 +15,7 @@
     { p: 6, n: 1, title: 'Breast reduction', text: 'Width and projection reduced to suit a slimmer frame, with symmetry restored between the two sides.' },
     { p: 7, n: 1, title: 'Breast reduction', text: 'Reduced and lifted for a natural, proportionate profile that suits everyday clothes.' }
   ];
-  const src = (c, side) => `img/ba/p${c.p}-${c.n}-${side}.webp`;
+  const src = (c, side) => `/img/ba/p${c.p}-${c.n}-${side}.webp`;
 
   /* ---------- compare slider ---------- */
   function initCompare(el) {

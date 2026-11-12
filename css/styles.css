@@ -845,3 +845,22 @@ a.rating:hover{opacity:.85}
 .ty__ratings{text-align:left}
 @media (max-width:860px){.ty__steps{grid-template-columns:1fr;max-width:520px}}
 @media (max-width:560px){.ty__cta .btn{flex:1 1 100%}.ty__more ul{flex-direction:column;align-items:center}}
+
+/* ==========================================================
+   LANDING PAGE INDEX (homepage)
+   ========================================================== */
+.lps{position:relative;isolation:isolate;overflow:hidden;min-height:70svh;color:var(--white);background:#232221;padding:calc(var(--hdr) + clamp(48px,7vw,100px)) 0 clamp(72px,9vw,120px)}
+.lps__eyebrow{font:600 12px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.lps__title{font-family:var(--serif);font-weight:400;font-size:clamp(44px,6vw,84px);line-height:1.02;letter-spacing:-.01em;margin-bottom:20px}
+.lps__lead{font-size:clamp(17px,1.4vw,20px);line-height:1.6;max-width:34em;color:rgba(255,255,255,.82);margin-bottom:clamp(36px,5vw,56px)}
+.lps__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:24px}
+.lpcard{display:flex;flex-direction:column;height:100%;border-radius:var(--r-card);overflow:hidden;text-decoration:none;color:var(--white);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
+.lpcard:hover{transform:translateY(-6px);border-color:rgba(208,193,151,.6);box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.lpcard__img{display:block;aspect-ratio:4/3;overflow:hidden}
+.lpcard__img img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform .8s var(--ease)}
+.lpcard:hover .lpcard__img img{transform:scale(1.05)}
+.lpcard__body{display:flex;flex-direction:column;gap:8px;padding:22px 24px 24px}
+.lpcard__tag{align-self:flex-start;font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);background:var(--g-gold);padding:7px 11px;border-radius:999px}
+.lpcard h2{font-family:var(--serif);font-weight:500;font-size:30px;line-height:1.1;margin-top:6px}
+.lpcard p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.75);margin:0}
+.lpcard__go{margin-top:8px;font-weight:600;font-size:14px;color:var(--gold)}
