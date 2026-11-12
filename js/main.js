@@ -265,20 +265,10 @@
     });
   });
 
-  /* ---------- journey timeline: line fills as you scroll ---------- */
+  /* ---------- journey: horizontal timeline, arrows move one step ---------- */
   const tl = $('[data-timeline]');
   if (tl) {
-    let tlTick = false;
-    const tlRun = () => {
-      const r = tl.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, (innerHeight * 0.6 - r.top) / r.height));
-      tl.style.setProperty('--tp', p.toFixed(3));
-      tlTick = false;
-    };
-    addEventListener('scroll', () => { if (!tlTick) { tlTick = true; requestAnimationFrame(tlRun); } }, { passive: true });
-    tlRun();
-    // mobile arrows: move one card at a time
-    const jStep = () => { const c = tl.children[0]; return c ? c.getBoundingClientRect().width + 16 : 300; };
+    const jStep = () => { const c = tl.children[0]; return c ? c.getBoundingClientRect().width + (parseFloat(getComputedStyle(tl).columnGap) || 16) : 300; };
     const jPrev = $('[data-j-prev]'), jNext = $('[data-j-next]');
     const jUpd = () => {
       jPrev.disabled = tl.scrollLeft < 4;
